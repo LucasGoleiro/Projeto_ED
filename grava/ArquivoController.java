@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 import javax.imageio.IIOException;
 import javax.swing.JOptionPane;
 
-import com.sun.tools.sjavac.comp.dependencies.PublicApiCollector;
+//import com.sun.tools.sjavac.comp.dependencies.PublicApiCollector;
 
 import projeto_ed.Vestibulando;
 
@@ -114,7 +114,8 @@ public class ArquivoController implements IArquivoController {
 	}
 	
 	// --------------------- LE E IMPRIME DADOS DO ARQUIVO TXT ----------------------
-	public void readFile(String path, String nome) throws IOException { 
+	public String readFile(String path, String nome) throws IOException { 
+		String lista = "";
 		File arq = new File("C://ed", "lista_vestibulando");
 		if (arq.exists() && arq.isFile()) {
 			FileInputStream fluxo = new FileInputStream(arq);
@@ -123,6 +124,7 @@ public class ArquivoController implements IArquivoController {
 			String linha = buffer.readLine();
 			while(linha != null) { // procurando End of File
 				System.out.println(linha);
+				lista += linha + "\n";
 				linha = buffer.readLine();				
 			}
 			buffer.close();
@@ -131,6 +133,7 @@ public class ArquivoController implements IArquivoController {
 		}else {
 			throw new IOException("Arquivo Inválido");
 		}
+		return lista;
 	}
 
 }
