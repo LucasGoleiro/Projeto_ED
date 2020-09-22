@@ -15,6 +15,8 @@ import java.io.PrintWriter;
 import javax.imageio.IIOException;
 import javax.swing.JOptionPane;
 
+import com.sun.tools.sjavac.comp.dependencies.PublicApiCollector;
+
 import projeto_ed.Vestibulando;
 
 public class ArquivoController implements IArquivoController {
@@ -106,8 +108,29 @@ public class ArquivoController implements IArquivoController {
 			print.close();
 			filewriter.close();			
 			
-		}		
+		}
+	
 
+	}
+	
+	// --------------------- LE E IMPRIME DADOS DO ARQUIVO TXT ----------------------
+	public void readFile(String path, String nome) throws IOException { 
+		File arq = new File("C://ed", "lista_vestibulando");
+		if (arq.exists() && arq.isFile()) {
+			FileInputStream fluxo = new FileInputStream(arq);
+			InputStreamReader leitor = new InputStreamReader(fluxo);
+			BufferedReader buffer = new BufferedReader(leitor);
+			String linha = buffer.readLine();
+			while(linha != null) { // procurando End of File
+				System.out.println(linha);
+				linha = buffer.readLine();				
+			}
+			buffer.close();
+			leitor.close();
+			fluxo.close();
+		}else {
+			throw new IOException("Arquivo Inválido");
+		}
 	}
 
 }

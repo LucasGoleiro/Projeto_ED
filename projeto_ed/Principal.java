@@ -49,7 +49,13 @@ public class Principal {
 				}
 				
 			case 7: mostrar = lista.Mostrar();
-					System.out.println(mostrar);
+				try {
+					arquivo.readFile("C://ed", "lista_vestibulando");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+					
 					
 			break;
 			}
