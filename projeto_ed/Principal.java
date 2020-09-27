@@ -62,10 +62,14 @@ public class Principal {
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					}
-						
+					}				
 						
 				break;
+				
+				case 9: System.exit(0);
+				
+				default:
+				JOptionPane.showMessageDialog(null,"Opção inválida");
 				}
 			}
 		
@@ -94,8 +98,12 @@ public class Principal {
 						e.printStackTrace();
 					}
 				break;
-					
 				
+				case 9: System.exit(0);
+				
+				default:
+				JOptionPane.showMessageDialog(null,"Opção inválida");
+					
 				}
 			}
 		} else {
