@@ -23,6 +23,20 @@ public class Principal {
 		ArquivoController arquivo = new ArquivoController();
 		
 		JOptionPane.showMessageDialog(null, "Vestibular Fatec 2020 \n Inscrições abertas !!!!!");
+		JOptionPane.showMessageDialog(null, "Inscrições para o processo seletivo____________03/10/2019 a 27/10/2019\n"
+										  + "Divulgação das inscrições deferidas____________30/10/2019\n"
+										  + "Solicitação de recursos sobre as inscrições____31/10/2019 a 01/11/2019\n"
+										  + "Divulgação das inscrições homologadas__________04/11/2019\n"
+										  + "Processo seletivo Etapa 1______________________04/11/2019 a 08/11/2019\n"
+										  + "Divulgação do resultado da Etapa 1_____________11/11/2019\n"
+										  + "Divulgação do cronograma das entrevistas_______13/11/2019\n"
+										  + "Processo seletivo Etapa 2______________________18/11/2019 a 22/11/2019\n"
+										  + "Divulgação de resultado preliminar_____________02/12/2019\n"
+										  + "Solicitação de recursos da nota final__________09/12/2019\n"
+										  + "Divulgação da classificação final______________16/12/2019\n"
+										  + "Matrícula______________________________________08/01/2020 a 17/01/2020\n"
+										  + "Segunda chamada para vagas remanescentes_______20/01/2020 a 24/01/2020\n"
+										  + "Início das Aulas_______________________________17/02/2020");
 		
 		id = Integer.parseInt(JOptionPane.showInputDialog("1 - Sou um candidato \n2 - Sou administrador"));
 		
