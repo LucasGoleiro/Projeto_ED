@@ -1,6 +1,8 @@
 package projeto_ed;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -14,11 +16,15 @@ public class Principal {
 		int id;
 		String mostrar;
 		String nome;
+		
+		
 		String dataNasc;
 		String periodo;
 		String curso;
 		Metodos lista = new Metodos();
 		Vestibulando vestibulando;
+		
+		String[] listaOrdenada = null;
 		
 		ArquivoController arquivo = new ArquivoController();
 		
@@ -47,8 +53,8 @@ public class Principal {
 				
 				switch(opc) {
 				
-				case 1: cpf = Integer.parseInt(JOptionPane.showInputDialog("Digite seu CPF"));
-						nome = JOptionPane.showInputDialog("Digite seu nome");
+				case 1: nome = JOptionPane.showInputDialog("Digite seu nome");
+						cpf = Integer.parseInt(JOptionPane.showInputDialog("Digite seu CPF"));
 						dataNasc = JOptionPane.showInputDialog("Digite sua data de nascimento (DD/MM/AAAA)");
 						curso = JOptionPane.showInputDialog("Digite o curso pretendido");
 						periodo = JOptionPane.showInputDialog("Digite o período do curso pretendido");
@@ -90,14 +96,18 @@ public class Principal {
 			
 		} else if (id == 2){
 			while(opc != 9) {
-				opc = Integer.parseInt(JOptionPane.showInputDialog("1 - Mostrar lista de inscritos \n9 - Sair"));
+				String listaOrdenadaFinal = "";
+				int codigo;
+				String [] vetor = {"Guilherme S", " Luciana", "Mat ilde", "Lucas", "Arnaldo", "Kleber", "Viviane"};
+				opc = Integer.parseInt(JOptionPane.showInputDialog("1 - Mostrar lista de inscritos \n2 - Pesquisar vestibulando \n3 - Ordenar por nome \n9 - Sair"));
 				
 				switch(opc) {
 				
 				case 1: //mostrar = lista.Mostrar();
 				try {
-					mostrar = arquivo.readFile("C://ed", "lista_vestibulando");
-					JOptionPane.showMessageDialog(null, mostrar);
+					listaOrdenada = arquivo.readFile("C://ed", "lista_vestibulando");
+					
+					//JOptionPane.showMessageDialog(null, mostrar);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -105,12 +115,22 @@ public class Principal {
 				
 			    break;
 				
-				case 2: try {
-						arquivo.imprimeCadastro(2222222);
+				case 2: codigo = Integer.parseInt(JOptionPane.showInputDialog("Digite o CPF no vestibulando:"));
+					try {
+						arquivo.imprimeCadastro(codigo);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+				break;
+				case 3: lista.mergeSort(listaOrdenada);
+				for (int i = 0; i < listaOrdenada.length; i++) {
+					listaOrdenadaFinal += listaOrdenada[i];
+					listaOrdenadaFinal += "\n";
+					//System.out.println(listaOrdenada[i]);
+					
+				}
+				JOptionPane.showMessageDialog(null, listaOrdenadaFinal);
 				break;
 				
 				case 9: System.exit(0);
